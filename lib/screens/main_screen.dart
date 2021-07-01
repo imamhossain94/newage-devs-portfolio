@@ -17,10 +17,10 @@ class MainScreen extends StatelessWidget {
       body: Column(
         children: [
           Header(),
+          //Divider(height: 1, thickness: 1,),
+          //Spacer(),
           Divider(height: 1, thickness: 1,),
-          Spacer(),
-          Divider(height: 1, thickness: 1,),
-          CustomSlider(length: 5, selectedIndex: 1,)
+          CustomSlider()
         ],
       ),
     );

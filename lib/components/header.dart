@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newage_portfolio/components/nav_button.dart';
 import 'package:newage_portfolio/utils/responsive.dart';
+import 'package:newage_portfolio/utils/screen_config.dart';
+import 'package:newage_portfolio/utils/themes_mode.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -11,9 +13,15 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenConfig().init(context);
+    ThemesMode().init(context);
+
+
     return Container(
       color: Theme.of(context).primaryColor,
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 40),
+      height: 60,
+
       child: Row(
         children: <Widget>[
 
