@@ -15,8 +15,6 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenConfig().init(context);
     ThemesMode().init(context);
-
-
     return Container(
       color: Theme.of(context).primaryColor,
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 40),
@@ -24,7 +22,6 @@ class Header extends StatelessWidget {
 
       child: Row(
         children: <Widget>[
-
           Text(
             "NEWAGE DEVS",
             style: GoogleFonts.poppins(
@@ -32,9 +29,7 @@ class Header extends StatelessWidget {
               fontWeight: FontWeight.bold
             ),
           ),
-
           Spacer(),
-
           if (!isMobile(context))
             Row(
               children: [
@@ -68,7 +63,6 @@ class Header extends StatelessWidget {
                 ),
               ],
             ),
-
           if (isMobile(context))
             IconButton(
               icon: Icon(Icons.menu),
