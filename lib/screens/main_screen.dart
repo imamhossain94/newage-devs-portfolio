@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:newage_portfolio/components/footer.dart';
 import 'package:newage_portfolio/components/header.dart';
-import 'package:newage_portfolio/components/side_menu.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
+
+import 'components/slider/custom_slider.dart';
 
 
 class MainScreen extends StatelessWidget {
@@ -18,7 +18,9 @@ class MainScreen extends StatelessWidget {
         children: [
           Header(),
           Divider(height: 1, thickness: 1,),
-
+          Spacer(),
+          Divider(height: 1, thickness: 1,),
+          CustomSlider(length: 5, selectedIndex: 1,)
         ],
       ),
     );
