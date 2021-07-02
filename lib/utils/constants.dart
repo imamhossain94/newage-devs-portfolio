@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const kPrimaryColor = Color(0xFF366CF6);
 const kSecondaryColor = Color(0xFFF5F6FC);
 
-const kBgLightColor = Color(0xFFF2F4FC);
+const kBgLightColor = Color(0xFFF2F2F2);
 const kPrimaryLightColor = Color(0xFFFFFFFF);
 
 

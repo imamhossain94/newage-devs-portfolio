@@ -6,6 +6,7 @@ import 'package:newage_portfolio/utils/themes_mode.dart';
 
 import 'components/projects_grid.dart';
 import 'components/slider/custom_slider.dart';
+import 'components/technologies_section.dart';
 
 
 class MainScreen extends StatelessWidget {
@@ -27,7 +28,6 @@ class MainScreen extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     CustomSlider(),
-
                     SizedBox(
                       height: 120,
                       child: Row(
@@ -65,8 +65,9 @@ class MainScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     ProjectGrid(),
+                    TechnologiesSection()
+
 
                   ],
                 ),

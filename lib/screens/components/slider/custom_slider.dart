@@ -29,9 +29,11 @@ class _CustomSliderState extends State<CustomSlider> {
     widgets.add(slideTwo());
     widgets.add(slideThree());
     widgets.add(slideFour());
-    autoSlide();
+    WidgetsBinding.instance.addPostFrameCallback((_) => autoSlide());
+    //autoSlide();
     super.initState();
   }
+
 
 
   Widget slideOne() {
@@ -243,18 +245,31 @@ class _CustomSliderState extends State<CustomSlider> {
 
   void autoSlide() async {
 
-    Timer.periodic(Duration(seconds:3), (Timer t)  {
+    // Timer.periodic(Duration(seconds:3), (Timer t)  {
+    //
+    //   setState(() {
+    //     if(selectedIndex < widgets.length-1){
+    //       selectedIndex++;
+    //     }else{
+    //       selectedIndex = 0;
+    //     }
+    //
+    //     pageController.animateToPage(selectedIndex, duration: Duration(seconds: 1), curve: Curves.linear).then((_) => autoSlide());
+    //
+    //   });
+    //
+    // });
 
-      setState(() {
-        if(selectedIndex < widgets.length-1){
-          selectedIndex++;
-        }else{
-          selectedIndex = 0;
-        }
+    Future.delayed(Duration(seconds: 2)).then((_) {
+      int nextPage = pageController.page.round() + 1;
 
-        pageController.jumpToPage(selectedIndex);
-      });
+      if (nextPage == widgets.length) {
+        nextPage = 0;
+      }
 
+      pageController
+          .animateToPage(nextPage, duration: Duration(seconds: 1), curve: Curves.linear)
+          .then((_) => autoSlide());
     });
 
   }
