@@ -4,8 +4,10 @@ import 'package:newage_portfolio/components/nav_button.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
 
+import 'components/about_section.dart';
 import 'components/projects_grid.dart';
 import 'components/slider/custom_slider.dart';
+import 'components/team_section.dart';
 import 'components/technologies_section.dart';
 
 
@@ -66,7 +68,9 @@ class MainScreen extends StatelessWidget {
                       ),
                     ),
                     ProjectGrid(),
-                    TechnologiesSection()
+                    TechnologiesSection(),
+                    AboutSection(),
+                    TeamSection()
 
 
                   ],

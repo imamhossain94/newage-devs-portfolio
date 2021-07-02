@@ -6,7 +6,7 @@ import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
 
 
-class TechnologiesSection extends StatelessWidget {
+class TeamSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenConfig().init(context);
@@ -26,12 +26,12 @@ class TechnologiesSection extends StatelessWidget {
             height: 120,
             width: width,
             child: Center(
-              child: Text("Technologies we use", textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: 30,fontWeight: FontWeight.bold),),
+              child: Text("Our Extraordinary Team", textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: 30,fontWeight: FontWeight.bold),),
             ),
           ),
           Expanded(
             child: Container(
-              color:ThemesMode.isDarkMode ? Colors.black : Colors.white,
+              color:ThemesMode.isDarkMode ? Colors.black : Colors.transparent,
               height: ScreenConfig.screenHeight - 120,
               width: width,
               child: Row(
@@ -62,39 +62,42 @@ class TechnologiesSection extends StatelessWidget {
     return Container(
       height: height,
       width: width,
+      margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(10),
       decoration: new BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
           shape: BoxShape.rectangle,
-          color: Colors.transparent
+          color: Colors.white
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
 
           Container(
-            height: 100,
-            width: 100,
-            padding: EdgeInsets.all(25),
+            height: height-90,
+            width: width-10,
             alignment: Alignment.center,
             decoration: new BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(30)),
                 shape: BoxShape.rectangle,
                 color: _randomColor,
+              image: DecorationImage(
+                image: AssetImage("images/user_image.png"),
+                fit: BoxFit.fill
+              )
             ),
-            child: Icon(FontAwesomeIcons.react, size: 36,),
           ),
 
-          SizedBox(height: 5,),
+          Spacer(),
           Text(
-            "React JS",
+            "Md. Imam Hossain",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.black,fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 2,),
+          SizedBox(height: 5,),
           Text(
-            "A cross-platform framework made by facebook.",
+            "Software Engineer",
             textAlign: TextAlign.center,
             //overflow: TextOverflow.ellipsis,
             style: TextStyle(color: Colors.black,fontSize: 14, ),

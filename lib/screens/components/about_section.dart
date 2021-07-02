@@ -6,7 +6,7 @@ import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
 
 
-class TechnologiesSection extends StatelessWidget {
+class AboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenConfig().init(context);
@@ -26,25 +26,25 @@ class TechnologiesSection extends StatelessWidget {
             height: 120,
             width: width,
             child: Center(
-              child: Text("Technologies we use", textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: 30,fontWeight: FontWeight.bold),),
+              child: Text("Who we are", textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: 30,fontWeight: FontWeight.bold),),
             ),
           ),
           Expanded(
-            child: Container(
-              color:ThemesMode.isDarkMode ? Colors.black : Colors.white,
-              height: ScreenConfig.screenHeight - 120,
-              width: width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  logoWidget("", ((width-120)/3)-80, ((width-120)/3)-80),
-                  logoWidget("", ((width-120)/3)-80, ((width-120)/3)-80),
-                  logoWidget("", ((width-120)/3)-80, ((width-120)/3)-80),
-                ],
-              )
+              child: Container(
+                  color:ThemesMode.isDarkMode ? Colors.black : Colors.white,
+                  height: ScreenConfig.screenHeight - 120,
+                  width: width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      logoWidget("", ((width-120)/3)-80, ((width-120)/3)-80),
+                      logoWidget("", ((width-120)/3)-80, ((width-120)/3)-80),
+                      logoWidget("", ((width-120)/3)-80, ((width-120)/3)-80),
+                    ],
+                  )
 
-            )
+              )
           )
         ],
       ),
@@ -62,15 +62,16 @@ class TechnologiesSection extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.all(10),
+      padding: EdgeInsets.all(20),
       decoration: new BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
           shape: BoxShape.rectangle,
-          color: Colors.transparent
+          color: Color(0xFFF4F4F4)
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
           Container(
@@ -79,23 +80,23 @@ class TechnologiesSection extends StatelessWidget {
             padding: EdgeInsets.all(25),
             alignment: Alignment.center,
             decoration: new BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-                shape: BoxShape.rectangle,
-                color: _randomColor,
+              borderRadius: BorderRadius.all(Radius.circular(30)),
+              shape: BoxShape.rectangle,
+              color: _randomColor,
             ),
             child: Icon(FontAwesomeIcons.react, size: 36,),
           ),
 
-          SizedBox(height: 5,),
+          SizedBox(height: 25,),
           Text(
-            "React JS",
+            "Quality Service Provider",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.black,fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 2,),
+          SizedBox(height: 8,),
           Text(
-            "A cross-platform framework made by facebook.",
-            textAlign: TextAlign.center,
+            "Our Goal is to provide a quality service to our partners. That’s How we build a long term relationship with you.",
+            textAlign: TextAlign.start,
             //overflow: TextOverflow.ellipsis,
             style: TextStyle(color: Colors.black,fontSize: 14, ),
           ),
