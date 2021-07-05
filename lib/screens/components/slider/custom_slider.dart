@@ -44,7 +44,7 @@ class _CustomSliderState extends State<CustomSlider> {
       title: 'Draw Your Illustration Vectorized',
       description: '\nAre you searching for the Top Quality graphic design services? If yes then Let us be your assistance. We make business logo designs, banner design, poster design, packet design and t-shirt design that fall into the category of modern, unique, professional, minimal and creative way.',
     ));
-    //WidgetsBinding.instance.addPostFrameCallback((_) => autoSlide());
+    WidgetsBinding.instance.addPostFrameCallback((_) => autoSlide());
     super.initState();
   }
 
@@ -52,11 +52,19 @@ class _CustomSliderState extends State<CustomSlider> {
   void autoSlide() async {
     Future.delayed(Duration(seconds: 2)).then((_) {
       int nextPage = pageController.page.round() + 1;
-      if (nextPage == widgets.length) nextPage = 0;
+      if (nextPage == widgets.length){
+        nextPage = 0;
+        pageController
+            .animateToPage(nextPage, duration: Duration(milliseconds: 3000), curve: Curves.linearToEaseOut)
+            .then((_) => autoSlide());
+      } else{
+        pageController
+            .animateToPage(nextPage, duration: Duration(seconds: 3), curve: Curves.slowMiddle)
+            .then((_) => autoSlide());
+      }
 
-      pageController
-          .animateToPage(nextPage, duration: Duration(seconds: 1), curve: Curves.linear)
-          .then((_) => autoSlide());
+
+
     });
   }
 
