@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:newage_portfolio/models/technology_model.dart';
+import 'package:newage_portfolio/utils/responsive.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
 
@@ -12,18 +14,22 @@ class TechnologiesSection extends StatelessWidget {
     ScreenConfig().init(context);
     ThemesMode().init(context);
 
+    double bigCardSize = (((ScreenConfig.screenWidth-80)/2) * 0.85 >= 500? 500 : ((ScreenConfig.screenWidth-80)/2) * 0.85);
+    double smallCardSize = ((ScreenConfig.screenWidth)/2+200) * 0.85 >= 480? 480 : ((ScreenConfig.screenWidth)/2+200) * 0.85;
 
-    double height = ScreenConfig.screenHeight - 80;
+    double height = ScreenConfig.screenHeight - 60;
     double width = ScreenConfig.screenWidth;
+
+    print("Hey bro: " + ScreenConfig.screenWidth.toString());
 
     return Container(
       height: height,
       width: width,
-
+      color:ThemesMode.isDarkMode ? Colors.black : Colors.white.withOpacity(0.5),
       child: Column(
         children: [
           SizedBox(
-            height: 120,
+            height: 100,
             width: width,
             child: Center(
               child: Text("Technologies we use", textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: 30,fontWeight: FontWeight.bold),),
@@ -31,80 +37,143 @@ class TechnologiesSection extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              color:ThemesMode.isDarkMode ? Colors.black : Colors.white,
+              //color:ThemesMode.isDarkMode ? Colors.black : Colors.grey[300],
               height: ScreenConfig.screenHeight - 120,
               width: width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  logoWidget("", ((width-120)/3)-80, ((width-120)/3)-80),
-                  logoWidget("", ((width-120)/3)-80, ((width-120)/3)-80),
-                  logoWidget("", ((width-120)/3)-80, ((width-120)/3)-80),
-                ],
-              )
-
+              child: Responsive(
+                mobile: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                      ],
+                    )
+                  ],
+                ),
+                tablet: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                      ],
+                    )
+                  ],
+                ),
+                desktop: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                        technologyCard(smallCardSize/2-10, smallCardSize/2-10, technologies()[0]),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             )
           )
         ],
       ),
-
     );
-
-
   }
 
 
-  Widget logoWidget(String string, double height, double width) {
+  Widget technologyCard(double height, double width, TechnologyModel technologyModel) {
 
-    Color _randomColor = Colors.primaries[Random().nextInt(Colors.primaries.length)].withOpacity(0.3);
+
+    print(responsiveText(10).toString());
+    print(responsiveText(8).toString());
+
+    double titleFontSize = responsiveText(10) > 14 ? 16: responsiveText(10);
+    double descriptionFontSize = responsiveText(8) > 12 ? 14: responsiveText(8);
+    Color _randomColor = Colors.primaries[Random().nextInt(Colors.primaries.length)].withOpacity(0.7);
+
+    bool isTab = ScreenConfig.screenWidth < 1050;
 
     return Container(
       height: height,
       width: width,
-      padding: EdgeInsets.all(10),
-      decoration: new BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          shape: BoxShape.rectangle,
-          color: Colors.transparent
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.all(Radius.circular(15))
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-
           Container(
-            height: 100,
-            width: 100,
-            padding: EdgeInsets.all(25),
+            height: isTab?60:80,
+            width: isTab?60:80,
+            padding: EdgeInsets.all(15),
             alignment: Alignment.center,
-            decoration: new BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-                shape: BoxShape.rectangle,
-                color: _randomColor,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(isTab?15:30)),
+              shape: BoxShape.rectangle,
+              color: _randomColor,
             ),
-            child: Icon(FontAwesomeIcons.react, size: 36,),
+            child: Image.network(technologyModel.imageUrl),
           ),
-
-          SizedBox(height: 5,),
           Text(
-            "React JS",
+            technologyModel.title,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.black,fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(height: 2, color: Colors.black, fontWeight: FontWeight.bold, fontSize: titleFontSize, ),
           ),
-          SizedBox(height: 2,),
-          Text(
-            "A cross-platform framework made by facebook.",
+          //SizedBox(height: 10,),
+          Text(technologyModel.description,
             textAlign: TextAlign.center,
-            //overflow: TextOverflow.ellipsis,
-            style: TextStyle(color: Colors.black,fontSize: 14, ),
+            overflow: TextOverflow.ellipsis,
+            maxLines: isTab?2:3,
+            style: TextStyle(height: 2, color: Colors.black,fontSize: descriptionFontSize,),
           ),
         ],
       ),
     );
   }
-
-
 
 }
 
