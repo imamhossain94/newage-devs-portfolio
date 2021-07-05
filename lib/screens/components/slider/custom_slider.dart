@@ -55,16 +55,13 @@ class _CustomSliderState extends State<CustomSlider> {
       if (nextPage == widgets.length){
         nextPage = 0;
         pageController
-            .animateToPage(nextPage, duration: Duration(milliseconds: 3000), curve: Curves.linearToEaseOut)
+            .animateToPage(nextPage, duration: Duration(milliseconds: 2000), curve: Curves.linearToEaseOut)
             .then((_) => autoSlide());
       } else{
         pageController
-            .animateToPage(nextPage, duration: Duration(seconds: 3), curve: Curves.slowMiddle)
+            .animateToPage(nextPage, duration: Duration(milliseconds: 1500), curve: Curves.slowMiddle)
             .then((_) => autoSlide());
       }
-
-
-
     });
   }
 

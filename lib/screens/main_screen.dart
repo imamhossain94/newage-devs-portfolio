@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newage_portfolio/components/header.dart';
 import 'package:newage_portfolio/components/nav_button.dart';
+import 'package:newage_portfolio/components/projects_tab.dart';
 import 'package:newage_portfolio/controllers/MenuController.dart';
 import 'package:newage_portfolio/controllers/ScrollController.dart';
 import 'package:newage_portfolio/controllers/build_app_drawer.dart';
@@ -37,49 +38,14 @@ class MainScreen extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     CustomSlider(),
-                    SizedBox(
-                      height: 120,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          NavButton(
-                            title: 'All    ',
-                            icon: Icons.home,
-                            onPressed: () {  },
-                            isActive: true,
+                    ProjectTab(),
 
-                          ),
-                          NavButton(
-                            title: 'Mobile',
-                            icon: Icons.phone_android_rounded,
-                            onPressed: () {  },
-                            isActive: false,
-
-                          ),
-                          NavButton(
-                            title: 'Web',
-                            icon: Icons.web_rounded,
-                            onPressed: () {  },
-                            isActive: false,
-
-                          ),
-                          NavButton(
-                            title: 'Graphic',
-                            icon: Icons.color_lens_rounded,
-                            onPressed: () {  },
-                            isActive: false,
-
-                          ),
-                        ],
-                      ),
-                    ),
                     ProjectGrid(),
+                    
                     TechnologiesSection(),
                     AboutSection(),
                     TeamSection(),
                     ContactSection()
-
                   ],
                 ),
               ),
@@ -89,4 +55,8 @@ class MainScreen extends StatelessWidget {
       ),
     );
   }
+
+
 }
+
+
