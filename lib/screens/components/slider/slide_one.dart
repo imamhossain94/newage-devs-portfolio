@@ -14,7 +14,7 @@ class SlideOne extends StatelessWidget {
       decoration: BoxDecoration(
 
           image: DecorationImage(
-              image: AssetImage("images/ing_bg.png"),
+              image: AssetImage("images/slider_background.png"),
               fit: BoxFit.fill
           )
       ),

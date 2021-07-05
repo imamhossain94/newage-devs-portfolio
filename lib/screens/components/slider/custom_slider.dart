@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:newage_portfolio/screens/components/slider/slide_one.dart';
-import 'package:newage_portfolio/screens/components/slider/slide_two.dart';
+import 'package:newage_portfolio/screens/components/slider/slider_content.dart';
 import 'package:newage_portfolio/utils/constants.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
@@ -25,253 +25,39 @@ class _CustomSliderState extends State<CustomSlider> {
 
   @override
   void initState() {
-    widgets.add(SlideTwo());
     widgets.add(SlideOne());
-    widgets.add(slideThree());
-    widgets.add(slideFour());
+    widgets.add(SliderContent(
+      backgroundImage: "images/slider_background.png",
+      image: 'images/slide_image_one.png',
+      title: 'Get A Premium Quality Website',
+      description: '\nAre you looking for Professional Website for your business? Let us be your assistance. We create a creative and modern website from very scratch using advanced & modern web technologies.',
+    ));
+    widgets.add(SliderContent(
+      backgroundImage: "images/slider_background.png",
+      image: 'images/slide_image_two.png',
+      title: 'Get Your App Developed',
+      description: '\nAre you looking for Cross-Platform Application \"IOS, Android, Web, Native\"? Let us be your assistance. We have professional android, IOS app developer to develop high quality mobile apps for you. We can also develop a web based admin panel for your mobile app development.',
+    ));
+    widgets.add(SliderContent(
+      backgroundImage: "images/slider_background.png",
+      image: 'images/slide_image_three.png',
+      title: 'Draw Your Illustration Vectorized',
+      description: '\nAre you searching for the Top Quality graphic design services? If yes then Let us be your assistance. We make business logo designs, banner design, poster design, packet design and t-shirt design that fall into the category of modern, unique, professional, minimal and creative way.',
+    ));
     //WidgetsBinding.instance.addPostFrameCallback((_) => autoSlide());
-    //autoSlide();
     super.initState();
   }
 
 
-
-  Widget slideOne() {
-
-    return Container(
-      decoration: BoxDecoration(
-
-        image: DecorationImage(
-          image: AssetImage("images/ing_bg.png"),
-          fit: BoxFit.fill
-        )
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: 'Welcome\n',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 60),
-                ),
-                TextSpan(
-                    text: 'to\n',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 60),
-                ),
-                TextSpan(
-                  text: 'New',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 60),
-                ),
-                TextSpan(
-                  text: 'Age',
-                  style: TextStyle(color: Colors.deepOrangeAccent, fontWeight: FontWeight.bold, fontSize: 60),
-                ),
-                TextSpan(
-                  text: ' Devs',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 60),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10,),
-          Text(
-            "Develop The Idea",
-            style: TextStyle(color: Colors.white,  fontSize: 20),
-          )
-
-        ],
-      ),
-    );
-
-  }
-
-
-  Widget slideTwo() {
-
-    return Container(
-      decoration: BoxDecoration(
-
-          image: DecorationImage(
-              image: AssetImage("images/ing_bg.png"),
-              fit: BoxFit.fill
-          )
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: EdgeInsets.fromLTRB(40, 10, 10, 40),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Get A Premium Quality Website",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 36),
-                  ),
-                  Text(
-                    "\nAre you looking for Professional Website for your business? Let us be your assistance. We create a creative and modern website from very scratch using advanced & modern web technologies.",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.grey[300], fontSize: 20),
-                  )
-
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(10, 10, 40, 40),
-              child: Center(
-                child: Image.asset("images/img_laptop.png"),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-
-  }
-
-
-  Widget slideThree() {
-
-    return Container(
-      decoration: BoxDecoration(
-
-          image: DecorationImage(
-              image: AssetImage("images/ing_bg.png"),
-              fit: BoxFit.fill
-          )
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: EdgeInsets.fromLTRB(40, 10, 10, 40),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Get Your App Developed",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 36),
-                  ),
-                  Text(
-                    "\nAre you looking for Cross-Platform Application \"IOS, Android, Web, Native\"? Let us be your assistance. We have professional android, IOS app developer to develop high quality mobile apps for you. We can also develop a web based admin panel for your mobile app development.",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.grey[300], fontSize: 20),
-                  )
-
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(10, 10, 40, 40),
-              child: Center(
-                child: Image.asset("images/img_three.png"),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-
-  }
-
-
-  Widget slideFour() {
-
-    return Container(
-      decoration: BoxDecoration(
-
-          image: DecorationImage(
-              image: AssetImage("images/ing_bg.png"),
-              fit: BoxFit.fill
-          )
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: EdgeInsets.fromLTRB(40, 10, 10, 40),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Draw Your Illustration Vectorized",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 36),
-                  ),
-                  Text(
-                    "\nAre you searching for the Top Quality graphic design services? If yes then Let us be your assistance. We make business logo designs, banner design, poster design, packet design and t-shirt design that fall into the category of modern, unique, professional, minimal and creative way.",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.grey[300], fontSize: 20),
-                  )
-
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(10, 10, 40, 40),
-              child: Center(
-                child: Image.asset("images/img_four.png"),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-
-  }
-
-
   void autoSlide() async {
-
-    // Timer.periodic(Duration(seconds:3), (Timer t)  {
-    //
-    //   setState(() {
-    //     if(selectedIndex < widgets.length-1){
-    //       selectedIndex++;
-    //     }else{
-    //       selectedIndex = 0;
-    //     }
-    //
-    //     pageController.animateToPage(selectedIndex, duration: Duration(seconds: 1), curve: Curves.linear).then((_) => autoSlide());
-    //
-    //   });
-    //
-    // });
-
     Future.delayed(Duration(seconds: 2)).then((_) {
       int nextPage = pageController.page.round() + 1;
-
-      if (nextPage == widgets.length) {
-        nextPage = 0;
-      }
+      if (nextPage == widgets.length) nextPage = 0;
 
       pageController
           .animateToPage(nextPage, duration: Duration(seconds: 1), curve: Curves.linear)
           .then((_) => autoSlide());
     });
-
   }
 
 
