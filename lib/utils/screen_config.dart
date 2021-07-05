@@ -48,8 +48,7 @@ double responsiveWidth(double width) {
 }
 
 double responsiveText(double width) {
-  // double screenHeight = ScreenConfig.screenHeight;
-  // return (height / 812.0) * screenHeight;
+
   double screenWidth = ScreenConfig.screenWidth;
   return (width / 375.0) * screenWidth;
 }
