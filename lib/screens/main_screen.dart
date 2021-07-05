@@ -41,7 +41,7 @@ class MainScreen extends StatelessWidget {
                     ProjectTab(),
 
                     ProjectGrid(),
-                    
+
                     TechnologiesSection(),
                     AboutSection(),
                     TeamSection(),

@@ -75,7 +75,6 @@ class _CustomSliderState extends State<CustomSlider> {
 
     return Container(
       height: ScreenConfig.screenHeight-62,
-      //width: MediaQuery.of(context).size.width,
       child: Stack(
         children: [
           Positioned(
