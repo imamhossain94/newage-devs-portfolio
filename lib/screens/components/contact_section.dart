@@ -323,7 +323,6 @@ class ContactSection extends StatelessWidget {
               )
           ),
 
-
           SizedBox(
             height: 40,
             width: width-40,

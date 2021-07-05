@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:newage_portfolio/controllers/ScrollController.dart';
 import 'package:newage_portfolio/provider/theme_provider.dart';
 import 'package:newage_portfolio/screens/main_screen.dart';
 import 'package:newage_portfolio/utils/themes.dart';
@@ -7,6 +8,7 @@ import 'package:newage_portfolio/utils/themes_mode.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'controllers/MenuController.dart';
 import 'utils/constants.dart';
 
 
@@ -59,11 +61,26 @@ class _MyAppState extends State<MyApp> {
       theme: AppTheme().lightTheme(),
       darkTheme: AppTheme().darkTheme(),
       themeMode: themeNotifier.getThemeMode(),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => MainScreen(),
-        //'/second': (context) => SecondScreen(),
-      },
+
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => MainScreen(),
+      //   //'/second': (context) => SecondScreen(),
+      // },
+
+
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (context) => MenuController(),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => HomeScrollController(),
+          ),
+        ],
+        child: MainScreen(),
+      ),
+
     );
   }
 }
