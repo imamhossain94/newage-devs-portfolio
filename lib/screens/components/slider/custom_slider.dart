@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:newage_portfolio/screens/components/slider/slide_one.dart';
+import 'package:newage_portfolio/screens/components/slider/slide_two.dart';
 import 'package:newage_portfolio/utils/constants.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
@@ -24,8 +25,8 @@ class _CustomSliderState extends State<CustomSlider> {
 
   @override
   void initState() {
+    widgets.add(SlideTwo());
     widgets.add(SlideOne());
-    widgets.add(slideTwo());
     widgets.add(slideThree());
     widgets.add(slideFour());
     //WidgetsBinding.instance.addPostFrameCallback((_) => autoSlide());
