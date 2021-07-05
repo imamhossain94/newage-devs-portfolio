@@ -1,11 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:newage_portfolio/components/nav_button.dart';
+import 'package:newage_portfolio/models/projects_model.dart';
 import 'package:newage_portfolio/utils/responsive.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
 
 
-class ProjectGrid extends StatelessWidget {
+class ProjectGrid extends StatefulWidget {
+  @override
+  _ProjectGridState createState() => _ProjectGridState();
+}
+
+class _ProjectGridState extends State<ProjectGrid> {
+  int selectedIndex = 0;
+  List<ProjectsModel> projects;
+
+  @override
+  void initState() {
+    if(projects != null) projects.clear();
+    projects = allProject();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ScreenConfig().init(context);
@@ -14,78 +32,153 @@ class ProjectGrid extends StatelessWidget {
     double bigCardSize = (((ScreenConfig.screenWidth-80)/2) * 0.85 >= 500? 500 : ((ScreenConfig.screenWidth-80)/2) * 0.85);
     double smallCardSize = ((ScreenConfig.screenWidth)/2+200) * 0.85 >= 480? 480 : ((ScreenConfig.screenWidth)/2+200) * 0.85;
 
+
+    List<Widget> navButtons =
+    [
+      NavButton(
+        title: 'All',
+        icon: Icons.now_widgets_rounded,
+        onPressed: () {
+          if(projects != null) projects.clear();
+          projects = allProject();
+          setState(() {
+            selectedIndex = 0;
+          });
+        },
+        isActive: selectedIndex == 0? true : false,
+      ),
+      NavButton(
+        title: 'Mobile',
+        icon: Icons.phone_android_rounded,
+        onPressed: () {
+          if(projects != null) projects.clear();
+          projects = mobileProject();
+          setState(() {
+            selectedIndex = 1;
+          });
+        },
+        isActive: selectedIndex == 1? true : false,
+      ),
+      NavButton(
+        title: 'Web',
+        icon: Icons.web_asset_rounded,
+        onPressed: () {
+          if(projects != null) projects.clear();
+          projects = webProject();
+          setState(() {
+            selectedIndex = 2;
+          });
+        },
+        isActive: selectedIndex == 2? true : false,
+      ),
+      NavButton(
+        title: 'Graphic',
+        icon: Icons.color_lens_rounded,
+        onPressed: () {
+          if(projects != null) projects.clear();
+          projects = graphicProject();
+          setState(() {
+            selectedIndex = 3;
+          });
+        },
+        isActive: selectedIndex == 3? true : false,
+      ),
+    ];
+
     return Container(
-      height: ScreenConfig.screenHeight-180,
-      padding: EdgeInsets.symmetric(vertical: 0, horizontal: 40),
-      child: Responsive(
-        mobile: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            bigCard(
-                smallCardSize/2-20,
-                smallCardSize
+      height: ScreenConfig.screenHeight,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 100,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: navButtons,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                smallCard(smallCardSize/2-10, smallCardSize/2-10),
-                smallCard(smallCardSize/2-10, smallCardSize/2-10)
-              ],
-            )
-          ],
-        ),
-        tablet: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            bigCard(bigCardSize, bigCardSize),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                smallCard(bigCardSize/2-10, bigCardSize/2-10),
-                smallCard(bigCardSize/2-10, bigCardSize/2-10),
-              ],
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.only(bottom: 40),
+              height: ScreenConfig.screenHeight-160,
+              child: Responsive(
+                mobile: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    bigCard(
+                        smallCardSize/2-20,
+                        smallCardSize,
+                        projects[0]
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        smallCard(smallCardSize/2-10, smallCardSize/2-10, projects[1]),
+                        smallCard(smallCardSize/2-10, smallCardSize/2-10, projects[2])
+                      ],
+                    )
+                  ],
+                ),
+                tablet: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    bigCard(bigCardSize, bigCardSize, projects[0]),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        smallCard(bigCardSize/2-10, bigCardSize/2-10, projects[1]),
+                        smallCard(bigCardSize/2-10, bigCardSize/2-10, projects[2]),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        smallCard(bigCardSize/2-10, bigCardSize/2-10, projects[3]),
+                        smallCard(bigCardSize/2-10, bigCardSize/2-10, projects[4]),
+                      ],
+                    )
+                  ],
+                ),
+                desktop: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    bigCard(bigCardSize, bigCardSize, projects[0]),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        smallCard(bigCardSize/2-10, bigCardSize/2-10, projects[1]),
+                        smallCard(bigCardSize/2-10, bigCardSize/2-10, projects[2]),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        smallCard(bigCardSize/2-10, bigCardSize/2-10, projects[3]),
+                        smallCard(bigCardSize/2-10, bigCardSize/2-10, projects[4]),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                smallCard(bigCardSize/2-10, bigCardSize/2-10),
-                smallCard(bigCardSize/2-10, bigCardSize/2-10),
-              ],
-            )
-          ],
-        ),
-        desktop: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            bigCard(bigCardSize, bigCardSize),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                smallCard(bigCardSize/2-10, bigCardSize/2-10),
-                smallCard(bigCardSize/2-10, bigCardSize/2-10),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                smallCard(bigCardSize/2-10, bigCardSize/2-10),
-                smallCard(bigCardSize/2-10, bigCardSize/2-10),
-              ],
-            )
-          ],
-        ),
+          ),
+        ],
       ),
     );
 
+
   }
 
-  Widget bigCard(double height, double width) {
+
+
+  Widget bigCard(double height, double width, ProjectsModel projectsModel) {
 
     double titleFontSize = responsiveText(10) > 16 ? 16: responsiveText(10);
     double descriptionFontSize = responsiveText(8) > 14 ? 14: responsiveText(8);
@@ -111,17 +204,15 @@ class ProjectGrid extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(top: 20),
-                child: Align(alignment: Alignment.center, child: Image.asset("images/img_studlab.png")),
+                child: Align(alignment: Alignment.center, child: Image.asset(projectsModel.imageUrl)),
               ),
             ),
 
-            Text(
-              "StudLab",
+            Text(projectsModel.title,
               style: TextStyle(color: Colors.black,fontSize: titleFontSize, fontWeight: FontWeight.bold),
             ),
 
-            Text(
-              "The StudLab is an educational application that is developed by newagedevs to support the students of BUBT. By using this application.... (Read more)",
+            Text(projectsModel.description,
               style: TextStyle(color: Colors.black,fontSize: descriptionFontSize,),
             ),
         ],
@@ -166,7 +257,7 @@ class ProjectGrid extends StatelessWidget {
     );
   }
 
-  Widget smallCard(double height, double width) {
+  Widget smallCard(double height, double width, ProjectsModel projectsModel) {
 
 
     print(responsiveText(10).toString());
@@ -191,10 +282,10 @@ class ProjectGrid extends StatelessWidget {
           SizedBox(
             height: 60,
             width: 60,
-            child: Image.asset("images/ic_facebook.png"),
+            child: Image.asset(projectsModel.imageUrl),
           ),
           Text(
-            "FB Video Downloader",
+            projectsModel.title,
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.black,fontSize: titleFontSize, ),
           ),
@@ -203,7 +294,7 @@ class ProjectGrid extends StatelessWidget {
             width: width-80,
             child: CupertinoButton(
               onPressed: () {
-
+                projectsModel.onPressed();
               },
               padding: EdgeInsets.zero,
               color: Color(0xFFFFFFFF),
@@ -214,8 +305,6 @@ class ProjectGrid extends StatelessWidget {
       ),
     );
   }
-
-
 }
 
 

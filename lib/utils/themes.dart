@@ -33,7 +33,7 @@ class AppTheme {
   ThemeData lightTheme() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return ThemeData(
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: Colors.grey[300],
       primarySwatch: Colors.grey,
       primaryColor: kPrimaryLightColor,
       inputDecorationTheme: InputDecorationTheme(

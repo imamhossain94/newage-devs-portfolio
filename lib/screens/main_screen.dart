@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:newage_portfolio/components/header.dart';
-import 'package:newage_portfolio/components/nav_button.dart';
-import 'package:newage_portfolio/components/projects_tab.dart';
 import 'package:newage_portfolio/controllers/MenuController.dart';
 import 'package:newage_portfolio/controllers/ScrollController.dart';
 import 'package:newage_portfolio/controllers/build_app_drawer.dart';
@@ -38,10 +36,7 @@ class MainScreen extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     CustomSlider(),
-                    ProjectTab(),
-
                     ProjectGrid(),
-
                     TechnologiesSection(),
                     AboutSection(),
                     TeamSection(),
