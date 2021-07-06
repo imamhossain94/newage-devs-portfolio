@@ -14,13 +14,11 @@ class TechnologiesSection extends StatelessWidget {
     ScreenConfig().init(context);
     ThemesMode().init(context);
 
-    double bigCardSize = (((ScreenConfig.screenWidth-80)/2) * 0.85 >= 500? 500 : ((ScreenConfig.screenWidth-80)/2) * 0.85);
     double smallCardSize = ((ScreenConfig.screenWidth)/2+200) * 0.85 >= 480? 480 : ((ScreenConfig.screenWidth)/2+200) * 0.85;
 
     double height = ScreenConfig.screenHeight - 60;
     double width = ScreenConfig.screenWidth;
 
-    print("Hey bro: " + ScreenConfig.screenWidth.toString());
 
     return Container(
       height: height,
@@ -125,8 +123,6 @@ class TechnologiesSection extends StatelessWidget {
   Widget technologyCard(double height, double width, TechnologyModel technologyModel) {
 
 
-    print(responsiveText(10).toString());
-    print(responsiveText(8).toString());
 
     double titleFontSize = responsiveText(10) > 14 ? 16: responsiveText(10);
     double descriptionFontSize = responsiveText(8) > 12 ? 14: responsiveText(8);
