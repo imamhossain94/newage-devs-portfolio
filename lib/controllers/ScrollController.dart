@@ -3,7 +3,7 @@ import 'package:newage_portfolio/utils/screen_config.dart';
 
 class HomeScrollController extends ChangeNotifier {
 
-  ScrollController scrollController = ScrollController(initialScrollOffset: ScreenConfig.screenHeight*4 - 30);
+  ScrollController scrollController = ScrollController(initialScrollOffset: ScreenConfig.screenHeight*5 - 30);
 
   void getScrollPosition(double position){
     //scrollController.jumpTo(position);

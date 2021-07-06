@@ -260,9 +260,6 @@ class _ProjectGridState extends State<ProjectGrid> {
   Widget smallCard(double height, double width, ProjectsModel projectsModel) {
 
 
-    print(responsiveText(10).toString());
-    print(responsiveText(8).toString());
-
     double titleFontSize = responsiveText(10) > 14 ? 14: responsiveText(10);
     double descriptionFontSize = responsiveText(8) > 13 ? 13: responsiveText(8);
 
