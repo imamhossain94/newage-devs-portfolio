@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:newage_portfolio/models/technology_model.dart';
+import 'package:newage_portfolio/utils/constants.dart';
 import 'package:newage_portfolio/utils/responsive.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
@@ -23,7 +24,6 @@ class TechnologiesSection extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      color:ThemesMode.isDarkMode ? Colors.black : Colors.white.withOpacity(0.5),
       child: Column(
         children: [
           SizedBox(
@@ -122,8 +122,6 @@ class TechnologiesSection extends StatelessWidget {
 
   Widget technologyCard(double height, double width, TechnologyModel technologyModel) {
 
-
-
     double titleFontSize = responsiveText(10) > 14 ? 16: responsiveText(10);
     double descriptionFontSize = responsiveText(8) > 12 ? 14: responsiveText(8);
     Color _randomColor = Colors.primaries[Random().nextInt(Colors.primaries.length)].withOpacity(0.7);
@@ -134,8 +132,9 @@ class TechnologiesSection extends StatelessWidget {
       height: height,
       width: width,
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
-          color: Colors.transparent,
+          color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
           borderRadius: BorderRadius.all(Radius.circular(15))
       ),
       child: Column(
@@ -157,14 +156,14 @@ class TechnologiesSection extends StatelessWidget {
           Text(
             technologyModel.title,
             textAlign: TextAlign.center,
-            style: TextStyle(height: 2, color: Colors.black, fontWeight: FontWeight.bold, fontSize: titleFontSize, ),
+            style: TextStyle(height: 2, color: ThemesMode.isDarkMode?Colors.white54 :Colors.black, fontWeight: FontWeight.bold, fontSize: titleFontSize, ),
           ),
           //SizedBox(height: 10,),
           Text(technologyModel.description,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             maxLines: isTab?2:3,
-            style: TextStyle(height: 2, color: Colors.black,fontSize: descriptionFontSize,),
+            style: TextStyle(height: 2, color: ThemesMode.isDarkMode?Colors.white54 :Colors.black,fontSize: descriptionFontSize,),
           ),
         ],
       ),

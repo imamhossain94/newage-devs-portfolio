@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:newage_portfolio/components/nav_button.dart';
 import 'package:newage_portfolio/models/projects_model.dart';
+import 'package:newage_portfolio/utils/constants.dart';
 import 'package:newage_portfolio/utils/responsive.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
@@ -176,8 +177,6 @@ class _ProjectGridState extends State<ProjectGrid> {
 
   }
 
-
-
   Widget bigCard(double height, double width, ProjectsModel projectsModel) {
 
     double titleFontSize = responsiveText(10) > 16 ? 16: responsiveText(10);
@@ -192,7 +191,7 @@ class _ProjectGridState extends State<ProjectGrid> {
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(!isMobile?20:10),
       decoration: BoxDecoration(
-          color: Color(0xFFF4F4F4),
+        color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
         borderRadius: BorderRadius.all(Radius.circular(10))
       ),
       child:
@@ -209,11 +208,11 @@ class _ProjectGridState extends State<ProjectGrid> {
             ),
 
             Text(projectsModel.title,
-              style: TextStyle(color: Colors.black,fontSize: titleFontSize, fontWeight: FontWeight.bold),
+              style: TextStyle(color: ThemesMode.isDarkMode?Colors.white54 :Colors.black, fontSize: titleFontSize, fontWeight: FontWeight.bold),
             ),
 
             Text(projectsModel.description,
-              style: TextStyle(color: Colors.black,fontSize: descriptionFontSize,),
+              style: TextStyle(color: ThemesMode.isDarkMode?Colors.white54 :Colors.black, fontSize: descriptionFontSize,),
             ),
         ],
       ): Row(
@@ -269,7 +268,7 @@ class _ProjectGridState extends State<ProjectGrid> {
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(0),
       decoration: BoxDecoration(
-          color: Color(0xfff4f4f4),
+          color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
           borderRadius: BorderRadius.all(Radius.circular(15))
       ),
       child: Column(
@@ -284,7 +283,7 @@ class _ProjectGridState extends State<ProjectGrid> {
           Text(
             projectsModel.title,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.black,fontSize: titleFontSize, ),
+            style: TextStyle(color: ThemesMode.isDarkMode?Colors.white54 :Colors.black,fontSize: titleFontSize, ),
           ),
           SizedBox(
             height: 30,
@@ -294,7 +293,7 @@ class _ProjectGridState extends State<ProjectGrid> {
                 projectsModel.onPressed();
               },
               padding: EdgeInsets.zero,
-              color: Color(0xFFFFFFFF),
+              color: ThemesMode.isDarkMode?kBgDarkColor :Colors.white,
               child: Text('Visit', style: TextStyle(fontSize: descriptionFontSize),),
             ),
           ),
@@ -302,7 +301,6 @@ class _ProjectGridState extends State<ProjectGrid> {
       ),
     );
   }
-
 
 }
 
