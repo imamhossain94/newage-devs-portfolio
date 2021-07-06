@@ -8,7 +8,8 @@ const kPrimaryLightColor = Color(0xFFFFFFFF);
 
 
 const kBgDarkColor = Color(0xFF242526);
-const kPrimaryDarkColor = Color(0xFF18191A);
+//const kPrimaryDarkColor = Color(0xFF18191A);
+const kPrimaryDarkColor = Color(0xFF111111);
 
 const kBadgeColor = Color(0xFFF0F2F5);
 const kGrayColor = Color(0xFF8793B2);

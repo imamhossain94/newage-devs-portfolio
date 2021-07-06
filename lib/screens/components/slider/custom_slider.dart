@@ -104,14 +104,14 @@ class _CustomSliderState extends State<CustomSlider> {
             bottom: 0,
             child: Container(
               height: 60,
-              color: Colors.white,
+              color: Theme.of(context).primaryColor,
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
                 child: Row(
                   children: [
                     SizedBox(
-                      height: 30,
-                      width: 30,
+                      height: 40,
+                      width: 40,
                       child: CupertinoButton(
                         onPressed: () {
                           setState(() {
@@ -120,14 +120,14 @@ class _CustomSliderState extends State<CustomSlider> {
                             }else{
                               selectedIndex = widgets.length;
                             }
-
                             pageController.jumpToPage(selectedIndex);
                           });
                         },
                         padding: EdgeInsets.zero,
-                        color: kBgLightColor,
+                        color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
                         child: FaIcon(
                           FontAwesomeIcons.angleLeft, size:18,
+                          color: ThemesMode.isDarkMode?Colors.white:Colors.black,
                         ),
                       ),
                     ),
@@ -144,8 +144,8 @@ class _CustomSliderState extends State<CustomSlider> {
 
                     Spacer(),
                     SizedBox(
-                      height: 30,
-                      width: 30,
+                      height: 40,
+                      width: 40,
                       child: CupertinoButton(
                         onPressed: () {
                           setState(() {
@@ -154,14 +154,14 @@ class _CustomSliderState extends State<CustomSlider> {
                             }else{
                               selectedIndex = 0;
                             }
-
                             pageController.jumpToPage(selectedIndex);
                           });
                         },
                         padding: EdgeInsets.zero,
-                        color: kBgLightColor,
+                        color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
                         child: FaIcon(
                           FontAwesomeIcons.angleRight, size:18,
+                          color: ThemesMode.isDarkMode?Colors.white:Colors.black,
                         ),
                       ),
                     ),
@@ -185,7 +185,7 @@ class _CustomSliderState extends State<CustomSlider> {
       height: 5,
       width: selectedIndex == index ? 100 : 30,
       decoration: BoxDecoration(
-        color: ThemesMode.isDarkMode?selectedIndex == index ? Colors.white : Colors.grey: selectedIndex == index ? Colors.black : Colors.black45,
+        color: ThemesMode.isDarkMode?selectedIndex == index ? Colors.white : Colors.black87: selectedIndex == index ? Colors.black : Colors.black45,
         borderRadius: BorderRadius.circular(10),
       ),
     );
