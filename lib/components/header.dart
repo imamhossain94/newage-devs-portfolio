@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newage_portfolio/components/nav_button.dart';
 import 'package:newage_portfolio/components/theme_button.dart';
 import 'package:newage_portfolio/controllers/MenuController.dart';
 import 'package:newage_portfolio/controllers/ScrollController.dart';
+import 'package:newage_portfolio/utils/constants.dart';
 import 'package:newage_portfolio/utils/responsive.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
@@ -89,28 +91,40 @@ class _HeaderState extends State<Header> {
 
       child: Row(
         children: <Widget>[
-          Text(
-            "NEWAGE DEVS",
-            style: GoogleFonts.poppins(
-              fontSize: 18,
-              fontWeight: FontWeight.bold
+          Container(
+            height: 40,
+            alignment: Alignment.center,
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(5)),
+              color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
+            ),
+            child: Text(
+              "NEWAGE DEVS",
+              style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold
+              ),
             ),
           ),
           if(!Responsive.isDesktop(context))
           Expanded(
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: IconButton(
-                  icon: Icon(Icons.menu),
-                  // onPressed: () {
-                  //
-                  //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  //     content: Text("Sending Message"),
-                  //   ));
-                  // },
-                  onPressed: context.read<MenuController>().controlMenu,
-              ),
-            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ThemeButton(height: 40, width: 40,),
+                SizedBox(
+                  height: 40,
+                  width: 40,
+                  child: CupertinoButton(
+                    onPressed: context.read<MenuController>().controlMenu,
+                    padding: EdgeInsets.zero,
+                    color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
+                    child: Align(alignment: Alignment.center, child: Icon(Icons.menu, color: ThemesMode.isDarkMode?Colors.white:Colors.black,)),
+                  ),
+                ),
+              ],
+            )
           ),
           if (!Responsive.isMobile(context) && !Responsive.isTablet(context))
             Expanded(
