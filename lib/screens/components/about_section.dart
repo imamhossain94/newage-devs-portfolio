@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:newage_portfolio/models/info_model.dart';
+import 'package:newage_portfolio/utils/constants.dart';
 import 'package:newage_portfolio/utils/responsive.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
@@ -22,7 +23,6 @@ class AboutSection extends StatelessWidget {
     return Container(
       height: height+150,
       width: width,
-
       child: Column(
         children: [
           SizedBox(
@@ -34,7 +34,6 @@ class AboutSection extends StatelessWidget {
           ),
           Expanded(
               child: Container(
-                  color:ThemesMode.isDarkMode ? Colors.black : Colors.transparent,
                   height: ScreenConfig.screenHeight - 120,
                   width: width,
                   child: Responsive(
@@ -95,7 +94,7 @@ class AboutSection extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
           borderRadius: BorderRadius.all(Radius.circular(10))
       ),
       child: Column(
@@ -118,7 +117,7 @@ class AboutSection extends StatelessWidget {
           Text(
             infoModel.title,
             textAlign: TextAlign.start,
-            style: TextStyle(height: 2, color: Colors.black, fontSize: titleFontSize, fontWeight: FontWeight.bold),
+            style: TextStyle(height: 2, color: ThemesMode.isDarkMode?Colors.white54 :Colors.black, fontSize: titleFontSize, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 5,),
           Text(
@@ -126,7 +125,7 @@ class AboutSection extends StatelessWidget {
             textAlign: TextAlign.start,
             overflow: TextOverflow.ellipsis,
             maxLines: 5,
-            style: TextStyle(height: 1, color: Colors.black, fontSize: descriptionFontSize, ),
+            style: TextStyle(height: 1, color: ThemesMode.isDarkMode?Colors.white54 :Colors.black, fontSize: descriptionFontSize, ),
           ),
         ],
       ),
