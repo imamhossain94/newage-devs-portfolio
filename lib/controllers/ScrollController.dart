@@ -7,7 +7,8 @@ class HomeScrollController extends ChangeNotifier {
   //ScrollController scrollController = ScrollController(initialScrollOffset: ScreenConfig.screenHeight - 60);
   //ScrollController scrollController = ScrollController(initialScrollOffset: ScreenConfig.screenHeight*2 - 60);
 
-  ScrollController scrollController = ScrollController(initialScrollOffset: ScreenConfig.screenHeight*3);
+  //ScrollController scrollController = ScrollController(initialScrollOffset: ScreenConfig.screenHeight*4 - 60);
+  ScrollController scrollController = ScrollController(initialScrollOffset: ScreenConfig.screenHeight*5-110);
 
   void getScrollPosition(double position){
     //scrollController.jumpTo(position);

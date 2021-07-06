@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:newage_portfolio/models/team_model.dart';
+import 'package:newage_portfolio/utils/constants.dart';
 import 'package:newage_portfolio/utils/responsive.dart';
 import 'package:newage_portfolio/utils/screen_config.dart';
 import 'package:newage_portfolio/utils/themes_mode.dart';
@@ -22,7 +23,6 @@ class TeamSection extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-
       child: Column(
         children: [
           SizedBox(
@@ -34,7 +34,6 @@ class TeamSection extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              color:ThemesMode.isDarkMode ? Colors.black : Colors.transparent,
               height: ScreenConfig.screenHeight - 120,
               width: width,
               child: Responsive(
@@ -89,9 +88,9 @@ class TeamSection extends StatelessWidget {
       height: height+30,
       width: width,
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.fromLTRB(5, 5, 5, 10),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
           borderRadius: BorderRadius.all(Radius.circular(10))
       ),
       child: Column(
@@ -101,10 +100,11 @@ class TeamSection extends StatelessWidget {
           Expanded(
             child: Container(
               alignment: Alignment.center,
+              margin: EdgeInsets.all(10),
               decoration: new BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
                 shape: BoxShape.rectangle,
-                color: Color(0xfff2f2f2),
+                color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
                 image: DecorationImage(
                   image: NetworkImage(teamModel.imageUrl),
                   fit: BoxFit.fitWidth
@@ -115,7 +115,7 @@ class TeamSection extends StatelessWidget {
           Text(
             teamModel.name,
             textAlign: TextAlign.center,
-            style: TextStyle(height: 2, color: Colors.black, fontSize: titleFontSize, fontWeight: FontWeight.bold),
+            style: TextStyle(height: 2, color: ThemesMode.isDarkMode?Colors.white54 :Colors.black, fontSize: titleFontSize, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 5,),
           Text(
@@ -123,7 +123,7 @@ class TeamSection extends StatelessWidget {
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             maxLines: 5,
-            style: TextStyle(height: 1, color: Colors.black, fontSize: descriptionFontSize, ),
+            style: TextStyle(height: 1, color: ThemesMode.isDarkMode?Colors.white54 :Colors.black, fontSize: descriptionFontSize, ),
           ),
         ],
       ),

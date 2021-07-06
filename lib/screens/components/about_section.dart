@@ -109,7 +109,6 @@ class AboutSection extends StatelessWidget {
             decoration: new BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               shape: BoxShape.rectangle,
-              color: Color(0xfff2f2f2),
             ),
             child: Image.network(infoModel.imageUrl),
           ),
