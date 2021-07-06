@@ -30,7 +30,7 @@ class NavButton extends StatelessWidget {
         decoration: BoxDecoration(
             color: buttonColor==null?ThemesMode.isDarkMode?Colors.black87:Colors.white:buttonColor,
             borderRadius: BorderRadius.circular(8),
-            border: isActive?Border.all(color: kPrimaryDarkColor, width: 1):null
+            border: isActive?Border.all(color: ThemesMode.isDarkMode?Colors.white30:kBgLightColor, width: 1):null
         ),
         child: Material(
           color: Colors.transparent,

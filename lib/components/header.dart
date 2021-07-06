@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newage_portfolio/components/nav_button.dart';
+import 'package:newage_portfolio/components/theme_button.dart';
 import 'package:newage_portfolio/controllers/MenuController.dart';
 import 'package:newage_portfolio/controllers/ScrollController.dart';
 import 'package:newage_portfolio/utils/responsive.dart';
@@ -31,6 +32,7 @@ class _HeaderState extends State<Header> {
 
 
     List<Widget> navButtons= [
+      ThemeButton(height: 40, width: 40,),
       NavButton(
         title: 'Home',
         icon: Icons.home,
