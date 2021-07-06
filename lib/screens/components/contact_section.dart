@@ -21,7 +21,6 @@ class ContactSection extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      color:ThemesMode.isDarkMode ? Colors.black : Colors.transparent,//Colors.white.withOpacity(0.5),
       child: Column(
         children: [
           SizedBox(
@@ -88,7 +87,7 @@ class ContactSection extends StatelessWidget {
       decoration: new BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           shape: BoxShape.rectangle,
-          color: Colors.white
+        color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -115,7 +114,7 @@ class ContactSection extends StatelessWidget {
       decoration: new BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           shape: BoxShape.rectangle,
-          color: Colors.white
+        color: ThemesMode.isDarkMode?Colors.black87:kBgLightColor,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -164,9 +163,10 @@ class ContactSection extends StatelessWidget {
 
               },
               padding: EdgeInsets.zero,
-              color: kBgLightColor,
+              color: ThemesMode.isDarkMode?kBgDarkColor:Colors.white,
               child: FaIcon(
                 icon, size:18,
+                color: ThemesMode.isDarkMode?Colors.white:kBgDarkColor,
               ),
             ),
           ),
@@ -177,7 +177,7 @@ class ContactSection extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                    color: kBgLightColor,
+                    color: ThemesMode.isDarkMode?kBgDarkColor:Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(5))
                 ),
                 child: Text(content, style: TextStyle(fontSize: titleFontSize, fontWeight: FontWeight.bold),)
@@ -217,7 +217,7 @@ class ContactSection extends StatelessWidget {
               ),
               filled: true,
               contentPadding: EdgeInsets.all(16),
-              fillColor: kBgLightColor,
+              fillColor: ThemesMode.isDarkMode?kBgDarkColor:Colors.white,
             ),
           ),
         )
