@@ -15,7 +15,7 @@ Open CMD where you want to clone the project & run the following commands
 
 ```
 git clone https://github.com/imamhossain94/newage-devs-portfolio.git
-cd nxplay-mobile
+cd newage-devs-portfolio
 flutter packages get
 flutter run
 ```
