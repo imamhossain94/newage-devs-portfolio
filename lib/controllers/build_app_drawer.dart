@@ -85,14 +85,14 @@ class _BuildAppDrawerState extends State<BuildAppDrawer> {
                 icon: Icons.info_rounded,
                 text: 'About',
                 onTap: () {
-                  context.read<HomeScrollController>().getScrollPosition(ScreenConfig.screenHeight*2-60);
+                  context.read<HomeScrollController>().getScrollPosition(ScreenConfig.screenHeight*3-120);
                 }),
             Divider(),
             BuildDrawerBodyItem(
                 icon: Icons.phone,
                 text: 'Contact',
                 onTap: () async {
-                  context.read<HomeScrollController>().getScrollPosition(ScreenConfig.screenHeight*3-60);
+                  context.read<HomeScrollController>().getScrollPosition(ScreenConfig.screenHeight*5-110);
                 }),
 
           ],

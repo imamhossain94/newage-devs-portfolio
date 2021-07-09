@@ -23,10 +23,6 @@ class Header extends StatefulWidget {
 class _HeaderState extends State<Header> {
 
 
-  int selectedIndex = 0;
-
-
-
   @override
   Widget build(BuildContext context) {
     ScreenConfig().init(context);
@@ -40,44 +36,36 @@ class _HeaderState extends State<Header> {
         icon: Icons.home,
         onPressed: () {
           context.read<HomeScrollController>().getScrollPosition(0);
-          setState(() {
-            selectedIndex = 0;
-          });
+          context.read<HomeScrollController>().getSelectedIndex(0);
         },
-        isActive: selectedIndex == 0? true : false,
+        isActive: context.read<HomeScrollController>().selectedIndex == 0? true : false,
       ),
       NavButton(
         title: 'Projects',
         icon: Icons.code_rounded,
         onPressed: () {
           context.read<HomeScrollController>().getScrollPosition(ScreenConfig.screenHeight-60);
-          setState(() {
-            selectedIndex = 1;
-          });
+          context.read<HomeScrollController>().getSelectedIndex(1);
         },
-        isActive: selectedIndex == 1? true : false,
+        isActive: context.read<HomeScrollController>().selectedIndex == 1? true : false,
       ),
       NavButton(
         title: 'About',
         icon: Icons.info_rounded,
         onPressed: () {
-          context.read<HomeScrollController>().getScrollPosition(ScreenConfig.screenHeight*2-120);
-          setState(() {
-            selectedIndex = 2;
-          });
+          context.read<HomeScrollController>().getScrollPosition(ScreenConfig.screenHeight*3-120);
+          context.read<HomeScrollController>().getSelectedIndex(2);
         },
-        isActive: selectedIndex == 2? true : false,
+        isActive: context.read<HomeScrollController>().selectedIndex == 2? true : false,
       ),
       NavButton(
         title: 'Contact',
         icon: Icons.phone,
         onPressed: () {
-          context.read<HomeScrollController>().getScrollPosition(ScreenConfig.screenHeight*3);
-          setState(() {
-            selectedIndex = 3;
-          });
+          context.read<HomeScrollController>().getScrollPosition(ScreenConfig.screenHeight*5-110);
+          context.read<HomeScrollController>().getSelectedIndex(3);
         },
-        isActive: selectedIndex == 3? true : false,
+        isActive: context.read<HomeScrollController>().selectedIndex == 3? true : false,
       ),
     ];
 

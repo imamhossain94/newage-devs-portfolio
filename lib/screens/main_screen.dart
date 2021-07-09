@@ -22,6 +22,24 @@ class MainScreen extends StatelessWidget {
     ThemesMode().init(context);
     ScreenConfig().init(context);
 
+
+    context.read<HomeScrollController>().scrollController.addListener(() {
+
+
+      if(context.read<HomeScrollController>().scrollController.offset < (ScreenConfig.screenHeight - 60)){
+        context.read<HomeScrollController>().selectedIndex = 0;
+      }else if(context.read<HomeScrollController>().scrollController.offset < ScreenConfig.screenHeight - 60){
+        context.read<HomeScrollController>().selectedIndex = 1;
+      }else if(context.read<HomeScrollController>().scrollController.offset < ScreenConfig.screenHeight*3 - 120){
+        context.read<HomeScrollController>().selectedIndex = 2;
+      }else if(context.read<HomeScrollController>().scrollController.offset > ScreenConfig.screenHeight*5 - 120){
+        context.read<HomeScrollController>().selectedIndex = 3;
+      }
+
+
+    });
+
+
     return Scaffold(
       key: context.read<MenuController>().scaffoldKey,
       endDrawer: BuildAppDrawer(),
