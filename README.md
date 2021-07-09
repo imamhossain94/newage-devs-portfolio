@@ -14,7 +14,7 @@ It will be best compatible with `Flutter 1.22` version.
 Open CMD where you want to clone the project & run the following commands
 
 ```
-git clone https://github.com/newagedevs/nxplay-mobile.git
+git clone https://github.com/imamhossain94/newage-devs-portfolio.git
 cd nxplay-mobile
 flutter packages get
 flutter run
